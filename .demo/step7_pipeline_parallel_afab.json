@@ -1,0 +1,72 @@
+{
+    "$schema": "https://elio.dev/demo-time.schema.json",
+    "title": "Step 7: Pipeline Parallel (AFAB)",
+    "description": "",
+    "demos": [
+      {
+        "title": "new changes for step 7",
+        "description": "",
+        "steps": [
+          {
+            "action": "open",
+            "path": "/step7_pipeline_parallel_afab/patch_step_7.diff"
+          }
+        ]
+      },
+      {
+        "title": "train.py -> train with PipelineParallel",
+        "description": "",
+        "steps": [
+          {
+            "action": "highlight",
+            "path": "/step7_pipeline_parallel_afab/train.py",
+            "position": "187:229"
+          }
+        ]
+      },
+      {
+        "title": "pipeline_parallel.py -> PipelineParallel (distribute layers)",
+        "description": "",
+        "steps": [
+          {
+            "action": "highlight",
+            "path": "/step7_pipeline_parallel_afab/pipeline_parallel.py",
+            "position": "84:87"
+          }
+        ]
+      },
+      {
+        "title": "pipeline_parallel.py -> PipelineParallel AFAB (forward)",
+        "description": "",
+        "steps": [
+          {
+            "action": "highlight",
+            "path": "/step7_pipeline_parallel_afab/pipeline_parallel.py",
+            "position": "115:128"
+          }
+        ]
+      },
+      {
+        "title": "pipeline_parallel.py -> PipelineParallel AFAB (backward)",
+        "description": "",
+        "steps": [
+          {
+            "action": "highlight",
+            "path": "/step7_pipeline_parallel_afab/pipeline_parallel.py",
+            "position": "130:138"
+          }
+        ]
+      },
+      {
+        "title": "train.py -> loss across DP ranks",
+        "description": "",
+        "steps": [
+          {
+            "action": "highlight",
+            "path": "/step7_pipeline_parallel_afab/train.py",
+            "position": "201"
+          }
+        ]
+      },
+    ]
+  }

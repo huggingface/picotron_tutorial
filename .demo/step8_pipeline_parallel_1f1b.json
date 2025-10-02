@@ -1,0 +1,62 @@
+{
+    "$schema": "https://elio.dev/demo-time.schema.json",
+    "title": "Step 8: Pipeline Parallel (1F1B)",
+    "description": "",
+    "demos": [
+      {
+        "title": "new changes for step 8",
+        "description": "",
+        "steps": [
+          {
+            "action": "open",
+            "path": "/step8_pipeline_parallel_1f1b/patch_step_8.diff"
+          }
+        ]
+      },
+      {
+        "title": "pipeline_parallel.py -> PipelineParallel 1F1B (warmup phase)",
+        "description": "",
+        "steps": [
+          {
+            "action": "highlight",
+            "path": "/step8_pipeline_parallel_1f1b/pipeline_parallel.py",
+            "position": "213:219"
+          }
+        ]
+      },
+      {
+        "title": "pipeline_parallel.py -> PipelineParallel 1F1B (steady phase)",
+        "description": "",
+        "steps": [
+          {
+            "action": "highlight",
+            "path": "/step8_pipeline_parallel_1f1b/pipeline_parallel.py",
+            "position": "227:246"
+          }
+        ]
+      },
+      {
+        "title": "pipeline_parallel.py -> PipelineParallel 1F1B (cooldown phase)",
+        "description": "",
+        "steps": [
+          {
+            "action": "highlight",
+            "path": "/step8_pipeline_parallel_1f1b/pipeline_parallel.py",
+            "position": "248:256"
+          }
+        ]
+      },
+
+      {
+        "title": "pipeline_parallel.py -> PP 1F1B x DP grad sync (steady phase)",
+        "description": "",
+        "steps": [
+          {
+            "action": "highlight",
+            "path": "/step8_pipeline_parallel_1f1b/pipeline_parallel.py",
+            "position": "236:238"
+          }
+        ]
+      }
+    ]
+  }

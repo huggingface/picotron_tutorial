@@ -1,0 +1,4 @@
+torchrun --nproc_per_node 2 train.py --pp_size 2 --pp_engine afab --micro_batch_size 4 --gradient_accumulation_steps 2 --seq_len 128 --max_tokens 204800 --num_proc 16 --run_name pp_afab
+# debugpy-run -m torch.distributed.run -- --nproc_per_node 2 train.py --pp_size 2 --pp_engine afab --micro_batch_size 4 --gradient_accumulation_steps 2 --seq_len 128 --max_tokens 204800 --num_proc 16 --run_name pp_afab
+
+# torchrun --nproc_per_node 8 train.py --dp_size 2 --tp_size 2 --pp_size 2 --pp_engine afab --micro_batch_size 4 --gradient_accumulation_steps 2 --seq_len 128 --max_tokens 204800 --num_proc 16 --run_name pp_afab
