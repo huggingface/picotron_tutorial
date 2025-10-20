@@ -1,6 +1,7 @@
 """
 torchrun --nproc_per_node 1 train.py 
 """
+import lovely_tensors as lt; lt.monkey_patch()
 import os
 import datetime
 import torch
@@ -46,7 +47,7 @@ if __name__ == "__main__":
     local_rank = int(os.environ["LOCAL_RANK"])
     global_rank = int(os.environ["RANK"])
     world_size = int(os.environ["WORLD_SIZE"])
-    backend = "nccl"
+    backend = "gloo"
     torch.cuda.set_device(local_rank)
     device = torch.device("cuda", local_rank)
     dtype = torch.bfloat16
