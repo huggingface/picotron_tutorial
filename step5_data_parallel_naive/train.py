@@ -1,5 +1,8 @@
 """
 torchrun --nproc_per_node 4 train.py --dp_size 4 --micro_batch_size 1 --gradient_accumulation_steps 8 --seq_len 128 --max_tokens 40960 --num_proc 16 --run_name dp_naive --use_wandb
+# Tiny model
+
+torchrun --nproc_per_node 2 train.py --num_hidden_layers 2 --num_attention_heads 4 --num_key_value_heads 4 --dp_size 2 --micro_batch_size 1 --gradient_accumulation_steps 2 --seq_len 128 --max_tokens 40960 --num_proc 16 --run_name dp_naive
 """
 import os
 import time
@@ -93,14 +96,14 @@ if __name__ == "__main__":
     # Set environment variables
     os.environ["OMP_NUM_THREADS"] = args.omp_num_threads
     os.environ["TOKENIZERS_PARALLELISM"] = args.tokenizers_parallelism
-    os.environ["DEVICE"] = "cuda"
+    os.environ["DEVICE"] = "cpu"
     
     local_rank = int(os.environ["LOCAL_RANK"])
     global_rank = int(os.environ["RANK"])
     world_size = int(os.environ["WORLD_SIZE"])
-    backend = "nccl"
+    backend = "gloo"
     torch.cuda.set_device(local_rank)
-    device = torch.device("cuda", local_rank)
+    device = torch.device("cpu", local_rank)
     dtype = torch.bfloat16
 
     dist.init_process_group(rank=global_rank, world_size=world_size, backend=backend, init_method=f"env://", timeout=datetime.timedelta(minutes=2))

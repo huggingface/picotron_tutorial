@@ -17,7 +17,7 @@ class MicroBatchDataLoader(DataLoader):
         self.global_batch_size = micro_batch_size * grad_acc_steps * pgm.process_group_manager.dp_world_size
 
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
-        self.dataset = load_dataset(dataset_name, split=split)
+        self.dataset = load_dataset(dataset_name, split=f"train[:5%]")
 
         # Tokenize and chunk the dataset
         self.tokenized_dataset = self.tokenize_dataset(self.dataset, "text", self.seq_len, num_proc)
